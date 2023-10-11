@@ -9,13 +9,13 @@ namespace ConfigMenu {
 
     void RenderConfigMenu() {
 		// Config
-		if (ImGui::BeginTabItem("Config "))
+		if (ImGui::BeginTabItem(u8"ÅäÖÃ "))
 		{
 			static char configNameBuffer[128] = "";
 
-			ImGui::InputText("New Config Name", configNameBuffer, sizeof(configNameBuffer));
+			ImGui::InputText(u8"ÐÂÅäÖÃÃû", configNameBuffer, sizeof(configNameBuffer));
 
-			if (ImGui::Button("Create Config"))
+			if (ImGui::Button(u8"´´½¨ÅäÖÃ"))
 			{
 				std::string configFileName = std::string(configNameBuffer) + ".config";
 				MyConfigSaver::SaveConfig(configFileName);
@@ -47,16 +47,16 @@ namespace ConfigMenu {
 
 			if (selectedConfig != -1)
 			{
-				ImGui::Text("Selected Config: %s", configFiles[selectedConfig].c_str());
+				ImGui::Text(u8"Ñ¡ÔñµÄÅäÖÃ: %s", configFiles[selectedConfig].c_str());
 			}
 
-			if (ImGui::Button("Load Selected") && selectedConfig >= 0 && selectedConfig < configFiles.size())
+			if (ImGui::Button(u8"ÔØÈëÅäÖÃ") && selectedConfig >= 0 && selectedConfig < configFiles.size())
 			{
 				std::string selectedConfigFile = configFiles[selectedConfig];
 				MyConfigSaver::LoadConfig(selectedConfigFile);
 			}
 
-			if (ImGui::Button("Save Selected") && selectedConfig >= 0 && selectedConfig < configFiles.size())
+			if (ImGui::Button(u8"±£´æÅäÖÃ") && selectedConfig >= 0 && selectedConfig < configFiles.size())
 			{
 				std::string selectedConfigFile = configFiles[selectedConfig];
 				MyConfigSaver::SaveConfig(selectedConfigFile);
@@ -64,7 +64,7 @@ namespace ConfigMenu {
 
 			ImGui::Separator();
 
-			if (ImGui::Button("Delete Selected") && selectedConfig >= 0 && selectedConfig < configFiles.size())
+			if (ImGui::Button(u8"É¾³ýÅäÖÃ") && selectedConfig >= 0 && selectedConfig < configFiles.size())
 			{
 				std::string selectedConfigFile = configFiles[selectedConfig];
 				std::string fullPath = configDir + "/" + selectedConfigFile;
@@ -78,7 +78,7 @@ namespace ConfigMenu {
 				}
 			}
 
-			if (ImGui::Button("Reset to Default"))
+			if (ImGui::Button(u8"ÖØÖÃÎªÄ¬ÈÏÖµ"))
 			{
 				ConfigMenu::ResetToDefault();
 			}
