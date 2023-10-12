@@ -119,7 +119,7 @@ void Base_Radar::Render()
 			{
 				// Ô²ÐÎÑùÊ½
 				this->DrawList->AddCircle(PointPos.ToImVec2(), this->CircleSize, PointColor);
-				this->DrawList->AddCircleFilled(PointPos.ToImVec2(), this->CircleSize, ImColor(0, 0, 0,150));
+				this->DrawList->AddCircleFilled(PointPos.ToImVec2(), this->CircleSize, ImColor(0, 0, 0));
 			}	
 			else if (PointType==1)
 			{

@@ -2,6 +2,7 @@
 #include "Cheats.h"
 #include <iostream>
 #include <iomanip>
+#include <format>
 
 int main()
 {
@@ -24,16 +25,16 @@ int main()
 		goto END;
 	}
 
-	std::cout << "[Game] Pid:" << ProcessMgr.ProcessID << std::endl;
-	std::cout << "[Game] Client:" << gGame.GetClientDLLAddress() << std::endl;
+	std::cout << std::format("[Game] Pid:{}\n", ProcessMgr.ProcessID);
+	std::cout << std::format("[Game] Client:{:X}\n", gGame.GetClientDLLAddress());
 
 	std::cout << "Offset:" << std::endl;
-	std::cout << "--EntityList:" << std::setiosflags(std::ios::uppercase) << std::hex << Offset::EntityList << std::endl;
-	std::cout << "--Matrix:" << std::setiosflags(std::ios::uppercase) << std::hex << Offset::Matrix << std::endl;
-	std::cout << "--LocalPlayerController:" << std::setiosflags(std::ios::uppercase) << std::hex << Offset::LocalPlayerController << std::endl;
-	std::cout << "--ViewAngles:" << std::setiosflags(std::ios::uppercase) << std::hex << Offset::ViewAngle << std::endl;
-	std::cout << "--LocalPlayerPawn:" << std::setiosflags(std::ios::uppercase) << std::hex << Offset::LocalPlayerPawn << std::endl;
-	std::cout << "--ForceJump:" << std::setiosflags(std::ios::uppercase) << std::hex << Offset::ForceJump << std::endl;
+	std::cout << std::format("--EntityList:{:X}\n", Offset::EntityList);
+	std::cout << std::format("--Matrix:{:X}\n", Offset::Matrix);
+	std::cout << std::format("--LocalPlayerController:{:X}\n", Offset::LocalPlayerController);
+	std::cout << std::format("--ViewAngles:{:X}\n", Offset::ViewAngle);
+	std::cout << std::format("--LocalPlayerPawn:{:X}\n", Offset::LocalPlayerPawn);
+	std::cout << std::format("--ForceJump:{:X}\n", Offset::ForceJump);
 
 	std::cout << "Runing..." << std::endl;
 

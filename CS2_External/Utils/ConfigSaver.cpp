@@ -65,6 +65,7 @@ namespace MyConfigSaver {
         configFile << "AimFovRangeColor " << MenuConfig::AimFovRangeColor.Value.x << " " << MenuConfig::AimFovRangeColor.Value.y << " " << MenuConfig::AimFovRangeColor.Value.z << " " << MenuConfig::AimFovRangeColor.Value.w << std::endl;
         configFile << "OBSBypass " << MenuConfig::OBSBypass;
         configFile << "BunnyHop " << MenuConfig::BunnyHop;
+        configFile << "ShowWhenSpec " << MenuConfig::ShowWhenSpec;
         configFile.close();
         std::cout << "Configuration saved to " << filename << std::endl;
     }
@@ -85,12 +86,12 @@ namespace MyConfigSaver {
                 if (key == "ShowBoneESP") iss >> MenuConfig::ShowBoneESP;
                 else if (key == "TriggerDelay") iss >> TriggerBot::TriggerDelay;
                 else if (key == "ShowBoxESP") iss >> MenuConfig::ShowBoxESP;
-                else if (key == "TriggerHotKey") iss >> MenuConfig::TriggerHotKey;
+                else if (key == "TriggerHotKey") { iss >> MenuConfig::TriggerHotKey; TriggerBot::SetHotKey(MenuConfig::TriggerHotKey); }
                 else if (key == "RCSBullet") iss >> AimControl::RCSBullet;
                 else if (key == "ShowHealthBar") iss >> MenuConfig::ShowHealthBar;
                 else if (key == "AimFov") iss >> AimControl::AimFov;
                 else if (key == "FovLineSize") iss >> MenuConfig::FovLineSize;
-                else if (key == "AimBotHotKey") iss >> MenuConfig::AimBotHotKey;
+                else if (key == "AimBotHotKey") { iss >> MenuConfig::AimBotHotKey; AimControl::SetHotKey(MenuConfig::AimBotHotKey); }
                 else if (key == "ShowLineToEnemy") iss >> MenuConfig::ShowLineToEnemy;
                 else if (key == "RCSScale.x") iss >> AimControl::RCSScale.x;
                 else if (key == "RCSScale.y") iss >> AimControl::RCSScale.y;
@@ -129,6 +130,7 @@ namespace MyConfigSaver {
                 else if (key == "AimFovRangeColor") iss >> MenuConfig::AimFovRangeColor.Value.x >> MenuConfig::AimFovRangeColor.Value.y >> MenuConfig::AimFovRangeColor.Value.z >> MenuConfig::AimFovRangeColor.Value.w;
                 else if (key == "OBSBypass") iss >> MenuConfig::OBSBypass;
                 else if (key == "BunnyHop") iss >> MenuConfig::BunnyHop;
+                else if (key == "ShowWhenSpec") iss >> MenuConfig::ShowWhenSpec;
             }
         }
 
