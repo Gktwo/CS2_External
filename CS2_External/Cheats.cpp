@@ -19,7 +19,12 @@ void Cheats::Menu()
 		// esp menu
 		if (ImGui::BeginTabItem(u8"透视"))
 		{
-			Gui.MyCheckBox(u8"显示方框", &MenuConfig::ShowBoxESP);
+			
+			// TeamCheck
+			Gui.MyCheckBox(u8"友军开关", &MenuConfig::TeamCheck);
+
+			Gui.MyCheckBox(u8"显示方框", &MenuConfig::ShowBoxESP);			
+			
 			ImGui::SameLine();
 			ImGui::ColorEdit4(u8"##方框颜色", reinterpret_cast<float*>(&MenuConfig::BoxColor), ImGuiColorEditFlags_NoInputs);
 
@@ -53,11 +58,7 @@ void Cheats::Menu()
 			ImGui::SameLine();
 			ImGui::ColorEdit4(u8"##敌人射线颜色", reinterpret_cast<float*>(&MenuConfig::LineToEnemyColor), ImGuiColorEditFlags_NoInputs);
 
-			Gui.MyCheckBox(u8"十字准线", &MenuConfig::ShowCrossHair);
-			ImGui::SameLine();
-			ImGui::ColorEdit4(u8"##十字准线颜色", reinterpret_cast<float*>(&MenuConfig::CrossHairColor), ImGuiColorEditFlags_NoInputs);
-			float CrossHairSizeMin = 15, CrossHairSizeMax = 200;
-			Gui.SliderScalarEx1(u8"准心大小", ImGuiDataType_Float, &MenuConfig::CrossHairSize, &CrossHairSizeMin, &CrossHairSizeMax, "%.1f", ImGuiSliderFlags_None);
+
 		
 			ImGui::EndTabItem();
 		}
@@ -142,21 +143,31 @@ void Cheats::Menu()
 
 			ImGui::EndTabItem();
 		}
+		//misc
+		if (ImGui::BeginTabItem(u8"其它 "))
+		{
 
+			// OBS Bypass
+			Gui.MyCheckBox(u8"屏蔽截图", &MenuConfig::OBSBypass);
+			ImGui::SameLine();
+			//Bunnyhopping
+			Gui.MyCheckBox(u8"大跳", &MenuConfig::BunnyHop);
+			
+			//CrossHair
+			Gui.MyCheckBox(u8"十字准线", &MenuConfig::ShowCrossHair);
+			ImGui::SameLine();
+			ImGui::ColorEdit4(u8"##十字准线颜色", reinterpret_cast<float*>(&MenuConfig::CrossHairColor), ImGuiColorEditFlags_NoInputs);
+			float CrossHairSizeMin = 15, CrossHairSizeMax = 200;
+			Gui.SliderScalarEx1(u8"准心大小", ImGuiDataType_Float, &MenuConfig::CrossHairSize, &CrossHairSizeMin, &CrossHairSizeMax, "%.1f", ImGuiSliderFlags_None);
+
+			ImGui::EndTabItem();
+		}
 		// Render config saver
 		ConfigMenu::RenderConfigMenu();
 		
 		ImGui::Separator();
 
-		// TeamCheck
-		Gui.MyCheckBox(u8"友军开关", &MenuConfig::TeamCheck);
 
-		ImGui::SameLine();
-		// OBS Bypass
-		Gui.MyCheckBox(u8"屏蔽截图", &MenuConfig::OBSBypass);
-
-		//Bunnyhopping
-		Gui.MyCheckBox(u8"大跳", &MenuConfig::BunnyHop);
 
 
 
