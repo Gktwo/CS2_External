@@ -149,14 +149,14 @@ void Cheats::Menu()
 		ImGui::Separator();
 
 		// TeamCheck
-		Gui.MyCheckBox(u8"队伍检查", &MenuConfig::TeamCheck);
+		Gui.MyCheckBox(u8"友军开关", &MenuConfig::TeamCheck);
 
 		ImGui::SameLine();
 		// OBS Bypass
 		Gui.MyCheckBox(u8"屏蔽截图", &MenuConfig::OBSBypass);
 
 		//Bunnyhopping
-		Gui.MyCheckBox(u8"兔子跳", &MenuConfig::BunnyHop);
+		Gui.MyCheckBox(u8"大跳", &MenuConfig::BunnyHop);
 
 
 
