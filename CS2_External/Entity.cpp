@@ -193,7 +193,7 @@ bool PlayerPawn::GetFov()
 	DWORD64 CameraServices = 0;
 	if (!ProcessMgr.ReadMemory<DWORD64>(Address + Offset::Pawn.CameraServices, CameraServices))
 		return false;
-	return GetDataAddressWithOffset<int>(CameraServices, Offset::Pawn.iFov, this->Fov);
+	return GetDataAddressWithOffset<int>(CameraServices, Offset::Pawn.iFovStart, this->Fov);
 }
 
 bool PlayerPawn::GetFFlags()
@@ -203,7 +203,7 @@ bool PlayerPawn::GetFFlags()
 
 bool CEntity::IsAlive()
 {
-	return this->Controller.AliveStatus == 1 && this->Controller.Health > 0;
+	return this->Controller.AliveStatus == 1 && this->Pawn.Health > 0;
 }
 
 bool CEntity::IsInScreen()
