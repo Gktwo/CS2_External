@@ -7,6 +7,7 @@
 int main()
 {
 	auto ProcessStatus = ProcessMgr.Attach("cs2.exe");
+	std::vector<std::string> gamenames = { "Counter-Strike 2", "反恐精英：全球攻势" };																		
 	if (ProcessStatus != StatusCode::SUCCEED)
 	{
 		std::cout << "[ERROR] Failed to attach process, StatusCode:" << ProcessStatus << std::endl;
@@ -38,14 +39,19 @@ int main()
 
 	std::cout << "Runing..." << std::endl;
 
-	try
-	{
-		Gui.AttachAnotherWindow("Counter-Strike 2", "SDL_app", Cheats::Run);
-	}
-	catch (OSImGui::OSException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	
+		
+	for (const auto& gamename : gamenames) 
+	 {
+		try {
+			Gui.AttachAnotherWindow(gamename, "SDL_app", Cheats::Run);
+		}
+		catch (OSImGui::OSException& e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+	 }
+	
 
 END:
 	system("pause");
