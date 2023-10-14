@@ -9,7 +9,7 @@ void Cheats::Menu()
 	static bool IsMenuInit = false;
 	if (!IsMenuInit)
 	{
-		ImGui::GetStyle().Colors[ImGuiCol_WindowBg].w = 0.75;
+		//ImGui::GetStyle().Colors[ImGuiCol_WindowBg].w = 0.75;
 		IsMenuInit = true;
 	}
 
@@ -166,14 +166,21 @@ void Cheats::Menu()
 		}
 		if (ImGui::BeginTabItem(u8"关于 "))
 		{
-			ImGui::Text(u8"本软件以开源，仅用于学习交流，违规使用会导致账号封禁。\n请勿随意传播，贩卖等行为，违者自行承担法律责任");
+			ImGui::Text(u8"本软件已开源，仅用于学习交流，违规使用会导致账号封禁。\n请勿随意传播，贩卖等行为，违者自行承担法律责任");
 
 
-			if (ImGui::Button(u8"查看开源仓库")) {
+			if (ImGui::Button(u8"查看原始仓库")) {
 				system("start https://github.com/TKazer/CS2_External");
 			}
 			ImGui::SameLine();
 			ImGui::Text("https://github.com/TKazer/CS2_External");
+			ImGui::Separator();
+
+			if (ImGui::Button(u8"查看我的仓库")) {
+				system("start https://github.com/Gktwo/CS2_External");
+			}
+			ImGui::SameLine();
+			ImGui::Text("https://github.com/Gktwo/CS2_External");
 
 
 

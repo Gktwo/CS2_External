@@ -121,9 +121,8 @@ namespace OSImGui
         DestWindow.hWnd = FindWindowA(
             (DestWindowClassName.empty() ? NULL : DestWindowClassName.c_str()),
             (DestWindowName.empty() ? NULL : DestWindowName.c_str()));
-        //if (DestWindow.hWnd == NULL)
-           // throw OSException(DestWindowName + "  Attached");        
-        std::cout << DestWindowName + "  Attached" << std::endl;
+        if (DestWindow.hWnd == NULL)
+            throw OSException("DestWindow isn't exist");
         DestWindow.Name = DestWindowName;
         DestWindow.ClassName = DestWindowClassName;
 

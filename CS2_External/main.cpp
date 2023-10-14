@@ -7,7 +7,7 @@
 int main()
 {
 	auto ProcessStatus = ProcessMgr.Attach("cs2.exe");
-	std::vector<std::string> gamenames = { "Counter-Strike 2", "反恐精英：全球攻势" };																		
+	std::vector<std::string> gamenames = { "反恐精英：全球攻势","Counter-Strike 2" };																		
 	if (ProcessStatus != StatusCode::SUCCEED)
 	{
 		std::cout << "[ERROR] Failed to attach process, StatusCode:" << ProcessStatus << std::endl;
