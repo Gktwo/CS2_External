@@ -42,6 +42,7 @@ void Cheats::Menu()
 			ImGui::Combo(u8"血条类型", &MenuConfig::HealthBarType, u8"竖向\0横向");
 
 			Gui.MyCheckBox(u8"显示武器", &MenuConfig::ShowWeaponESP);
+			Gui.MyCheckBox(u8"显示距离", &MenuConfig::ShowDistance);
 			Gui.MyCheckBox(u8"显示角色", &MenuConfig::ShowPlayerName);
 
 			Gui.MyCheckBox(u8"爆头线", &MenuConfig::ShowHeadShootLine);
@@ -379,6 +380,9 @@ void Cheats::Run()
 		// Draw weaponName
 		if (MenuConfig::ShowWeaponESP)
 			Gui.StrokeText(Entity.Pawn.WeaponName, { Rect.x,Rect.y + Rect.w }, ImColor(255, 255, 255, 255), 14);
+
+		if (MenuConfig::ShowDistance)
+			Render::DrawDistance(LocalEntity, Entity, Rect);
 
 		if (MenuConfig::ShowPlayerName)
 		{

@@ -8,6 +8,7 @@ namespace MenuConfig
 	inline bool ShowBoxESP = false;
 	inline bool ShowHealthBar = false;
 	inline bool ShowWeaponESP = false;
+	inline bool ShowDistance = false;
 	inline bool ShowEyeRay = false;
 	inline bool ShowPlayerName = false;
 
