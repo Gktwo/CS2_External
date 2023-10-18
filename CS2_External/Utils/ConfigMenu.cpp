@@ -114,7 +114,7 @@ namespace ConfigMenu {
 		MenuConfig::TriggerBot = true;
 		MenuConfig::TeamCheck = true;
 		MenuConfig::VisibleCheck = true;
-		MenuConfig::ShowHeadShootLine = true;
+		MenuConfig::ShowHeadShootLine = false;
 		MenuConfig::HeadShootLineColor = ImVec4(255, 255, 255, 255);
 		MenuConfig::AimBotHotKey = 0;
 		MenuConfig::ShowLineToEnemy = false;
@@ -125,12 +125,13 @@ namespace ConfigMenu {
 		AimControl::RCSScale = ImVec2(1.2f, 1.4f);
 		MenuConfig::FovLineColor = ImVec4(55, 55, 55, 220);
 		MenuConfig::LineToEnemyColor = ImVec4(255, 255, 255, 220);
-		MenuConfig::ShowCrossHair = true;
+		MenuConfig::ShowCrossHair = false;
 		MenuConfig::CrossHairColor = ImColor(45, 45, 45, 255);
 		MenuConfig::CrossHairSize = 150;
-		MenuConfig::ShowAimFovRange = true;
+		MenuConfig::ShowAimFovRange = false;
 		MenuConfig::AimFovRangeColor= ImColor(230, 230, 230, 255);
 		MenuConfig::OBSBypass = true;
 		MenuConfig::BunnyHop = false;
+		MenuConfig::AntiFlashbang = false;
     }
 }

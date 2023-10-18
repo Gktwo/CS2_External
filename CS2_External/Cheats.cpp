@@ -148,6 +148,7 @@ void Cheats::Menu()
 		if (ImGui::BeginTabItem(u8"其它 "))
 		{
 
+            Gui.MyCheckBox(u8"反闪光弹", &MenuConfig::AntiFlashbang);
 			// OBS Bypass
 			Gui.MyCheckBox(u8"屏蔽截图", &MenuConfig::OBSBypass);
 			
@@ -434,6 +435,9 @@ void Cheats::Run()
 	
 	if (MenuConfig::BunnyHop)
 		Bunnyhop::Run(LocalEntity);
+
+	if (MenuConfig::AntiFlashbang)
+		AntiFlashbang::Run(LocalEntity);
 
 	if (MenuConfig::AimBot && GetAsyncKeyState(AimControl::HotKey))
 	{

@@ -62,4 +62,6 @@ namespace MenuConfig
 	inline ImColor CrossHairColor = ImColor(45, 45, 45, 255);
 	inline float CrossHairSize = 150;
 	inline bool ShowWhenSpec = true;
+
+	inline bool AntiFlashbang = false;
 }
